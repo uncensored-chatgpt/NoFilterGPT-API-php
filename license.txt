@@ -1,0 +1,37 @@
+
+### `docs/API_DOCS.md`
+
+```markdown
+# NoFilterGPT API Documentation
+
+## API Overview
+
+The NoFilterGPT API allows you to interact with our GPT-based AI model. You can use it to generate responses based on provided prompts.
+
+## Endpoints
+
+### POST `/v1/chat/completions`
+
+**URL**: `https://api.nofiltergpt.com/v1/chat/completions?api_key=YOUR_API_KEY`
+
+#### Parameters
+
+- `messages`: Array of messages with roles (system, user) and content.
+- `temperature`: (Optional) A number between 0 and 1 to control randomness.
+- `max_tokens`: (Optional) Maximum number of tokens for the response.
+- `top_p`: (Optional) Controls the diversity of the generated text.
+
+#### Example Request
+
+```bash
+curl -X POST "https://api.nofiltergpt.com/v1/chat/completions?api_key=YOUR_API_KEY" \
+-H "Content-Type: application/json" \
+-d '{
+  "messages": [
+    {"role": "system", "content": "You are a helpful assistant."},
+    {"role": "user", "content": "Hello! Can you help me with something?"}
+  ],
+  "temperature": 0.7,
+  "max_tokens": 150,
+  "top_p": 1
+}'
